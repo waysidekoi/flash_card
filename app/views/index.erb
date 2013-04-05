@@ -2,19 +2,32 @@
   <h1>Flash card</h1>
 
 
+
+
+
   <!-- IF USER IS LOGIN -->
-  Welcome logined user's name!!
-  <h3>Choose a deck</h3>
-  <ul id="game-list">
-    <% @decks.each do |d| %>
-      <li><%= d.name %> | <form action="/games/<%= d.id %>" method='post'>
+  <% if login? %>
+    Welcome <%= current_user.name %>!
+    <h3>Choose a deck</h3>
+    <ul id="game-list">
+      <% @decks.each do |d| %>
+        <li><%= d.name %> | <form action="/games/<%= d.id %>" method='post'>
                             <button type='submit'>Game on baby</button>
                           </form>
-      </li>
+        </li>
+      <% end %>
+    </ul>
+    
+
+
+    <!-- IF USER NOT LOGIN -->
+    <% else %>
+
+    <h3>Login yo!</h3>
+      <form action="/session/login" method="post">
+        <input type="text" name="user_name" placeholder="your user name">
+        <button type="submit">Login</button>
+      </form>
     <% end %>
-  </ul>
-
-
-
 
 </div>
