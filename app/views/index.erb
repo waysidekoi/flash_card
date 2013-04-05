@@ -7,7 +7,7 @@
     <h3>Choose a deck</h3>
     <ul id="game-list">
       <% @decks.each do |deck| %>
-        <li><%= deck.name %> | <form action="/games/<%= deck.id %>" method='post'>
+        <li><%= deck.name %> | <form action="/games/new/<%= deck.id %>" method='post'>
                                   <button type='submit'>Game on baby</button>
                                 </form>
         </li>
