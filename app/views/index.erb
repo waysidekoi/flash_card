@@ -3,10 +3,14 @@
 
 
   <!-- IF USER IS LOGIN -->
+  Welcome logined user's name!!
   <h3>Choose a deck</h3>
   <ul id="game-list">
     <% @decks.each do |d| %>
-      <li><%= d.name %> | </li>
+      <li><%= d.name %> | <form action="/games/<%= d.id %>" method='post'>
+                            <button type='submit'>Game on baby</button>
+                          </form>
+      </li>
     <% end %>
   </ul>
 
