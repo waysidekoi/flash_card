@@ -8,5 +8,6 @@ namespace "/session" do
   end
 
   delete '/:user_id/logout/?' do
+    logout
   end
 end
