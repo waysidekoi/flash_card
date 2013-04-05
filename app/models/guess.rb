@@ -1,3 +1,6 @@
 class Guess < ActiveRecord::Base
-  # Remember to create a migration!
+  attr_protected :correct, :game_id, :card_id
+
+  belongs_to :game_id
+  has_one :card
 end

@@ -1,3 +1,6 @@
 class Card < ActiveRecord::Base
-  # Remember to create a migration!
+  attr_protected :front, :back, :deck_id
+
+  belongs_to :deck_id
+  has_many :guesses
 end

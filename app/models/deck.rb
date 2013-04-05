@@ -1,3 +1,7 @@
 class Deck < ActiveRecord::Base
-  # Remember to create a migration!
+  attr_accessible :name
+
+  has_many :cards
+  belongs_to :game
+
 end

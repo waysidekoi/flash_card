@@ -1,3 +1,6 @@
 class Game < ActiveRecord::Base
-  # Remember to create a migration!
+  attr_protected :user_id, :deck_id
+
+  has_one :deck
+  belongs_to :user
 end

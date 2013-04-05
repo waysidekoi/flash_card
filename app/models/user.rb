@@ -1,3 +1,5 @@
 class User < ActiveRecord::Base
-  # Remember to create a migration!
+  attr_accessible :user
+
+  has_many :games
 end
