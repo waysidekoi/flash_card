@@ -1,5 +1,7 @@
 namespace '/games' do
   get '/:id/?' do
+    game = Game.find(params[:id])
+    @card = get_a_card(game)
     erb :game_view
   end
 
@@ -16,4 +18,9 @@ namespace '/games' do
 
     redirect "/games/#{game.id}"
   end
+end
+
+def get_a_card(game)
+  all_cards = game.deck.cards
+  game.guesses
 end
