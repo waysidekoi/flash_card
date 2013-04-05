@@ -3,7 +3,7 @@ namespace '/users' do
   end
 
   post '/create/?' do
-    @user = User.new(name: params[:user_name])
+    @user = User.find_or_initialize_by_name(name: params[:user_name])
     unless @user.save
       @errors = 'User name not valid'
     end
