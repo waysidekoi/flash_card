@@ -2,4 +2,10 @@
   <ul>
     <li>Home</li>
   </ul>
+  <% if login? %>
+    <form method="post" action="/session/logout">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" >logout</button>
+    </form>
+  <% end %>
 </nav>

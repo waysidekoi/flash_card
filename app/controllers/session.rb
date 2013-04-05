@@ -5,7 +5,8 @@ namespace "/session" do
     redirect '/'
   end
 
-  delete '/:user_id/logout/?' do
+  delete '/logout/?' do
     logout
+    redirect '/'
   end
 end
