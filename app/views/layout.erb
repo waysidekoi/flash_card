@@ -18,6 +18,9 @@
   <title></title>
 </head>
 <body>
-  <%= yield %>
+  <%= erb :"common/_main_menu", layout: false %>
+  <div class="body">
+    <%= yield %>
+  </div>
 </body>
 </html>
