@@ -4,9 +4,9 @@
 
   </div>
   <div class="card_box">
-
+  <%=@card.front%>
   </div>
-  <form method="post" action="/game/guess">
+  <form method="post" action="/games/guess">
   <input type="text" name="answer" placeholder="enter answer">
   <button type= "submit">Submit</button>
   </form>
