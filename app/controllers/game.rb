@@ -1,7 +1,7 @@
 
 before '/games/*' do
   POSITIVE_REINFORCEMENT = ["Great Job!", "Wow!", "You did it!", "Fuck yeah!"]
-  NEGATIVE_REINFORCEMENT = ["YOU'RE DUMB", "YOU FUCKED UP!", "Get Back to the Books!", "Fuck yeah!"]
+  NEGATIVE_REINFORCEMENT = ["YOU'RE DUMB", "YOU FUCKED UP!", "Get Back to the Books!"]
 end
 
 
@@ -19,7 +19,16 @@ namespace '/games' do
     session[:card_ids_to_play] ||= card_ids_to_play(game)
     @card = get_a_card
     answer = Card.find(params[:card_id]).back
-    @answer_message = Check.check(answer,params[:answer]) ? POSITIVE_REINFORCEMENT.sample : NEGATIVE_REINFORCEMENT.sample
+    @correct = Check.check(answer,params[:answer])
+    @answer_message = @correct ? POSITIVE_REINFORCEMENT.sample : NEGATIVE_REINFORCEMENT.sample
+    
+    #find a better way to do this without removing mass assignment protection
+    guess = game.guesses.create(:correct => @correct)
+    guess.card = @card
+    guess.save
+
+
+                 
     erb :game_view
   end
 

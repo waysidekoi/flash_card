@@ -1,6 +1,7 @@
 class Guess < ActiveRecord::Base
-  attr_protected :correct, :game_id, :card_id
+  attr_protected :game_id, :card_id
+  attr_accessible :correct
 
   belongs_to :game
-  has_one :card
+  belongs_to :card
 end

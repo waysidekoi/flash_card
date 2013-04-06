@@ -3,6 +3,14 @@
   width: 600px;
 }
 
+.right {
+  background: green;
+}
+
+.wrong {
+  background: red;
+}
+
 #main-menu{
   position: fixed;
   top:0;
