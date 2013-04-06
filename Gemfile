@@ -17,6 +17,8 @@ gem 'rake'
 
 gem 'shotgun'
 
+gem 'fuzzy-string-match'
+
 group :test do
   gem 'faker'
   gem 'rspec'

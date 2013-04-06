@@ -1,15 +1,27 @@
+
+before '/games/*' do
+  POSITIVE_REINFORCEMENT = ["Great Job!", "Wow!", "You did it!", "Fuck yeah!"]
+  NEGATIVE_REINFORCEMENT = ["YOU'RE DUMB", "YOU FUCKED UP!", "Get Back to the Books!", "Fuck yeah!"]
+end
+
+
 namespace '/games' do
   get '/:id/?' do
-    game = Game.find(params[:id])  
+    game = Game.find(params[:id]) 
+    session[:game_id] = game.id
     session[:card_ids_to_play] ||= card_ids_to_play(game)
     @card = get_a_card
     erb :game_view
   end
 
-  post '/guess/:id' do
+ post '/:id/?' do 
+    game = Game.find(session[:game_id])
+    session[:card_ids_to_play] ||= card_ids_to_play(game)
+    @card = get_a_card
+    answer = Card.find(params[:card_id]).back
+    @answer_message = Check.check(answer,params[:answer]) ? POSITIVE_REINFORCEMENT.sample : NEGATIVE_REINFORCEMENT.sample
     erb :game_view
   end
-
 
   #makes a new game
   post '/new/:deck_id/?' do
@@ -38,6 +50,12 @@ def card_ids_to_play(game)
   cards_compare(game, game.deck.card_ids)
 end
 
-
+module Check
+  def self.check(guess, answer)
+    jaronumber = FuzzyStringMatch::JaroWinkler.create(:pure)
+    distance = jaronumber.getDistance(guess.downcase, answer.downcase)
+    distance > 0.75 ? true : false
+  end
+end
 
 

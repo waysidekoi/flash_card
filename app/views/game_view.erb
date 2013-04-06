@@ -1,13 +1,14 @@
 <div class="container">
 
   <div class="correctness">
-
+  <%= @answer_message %>
   </div>
   <div class="card_box">
-  <%=@card.front%>
+  <%= @card.front %>
   </div>
-  <form method="post" action="/games/guess">
+  <form method="post" action="/games/<%= session[:game_id] %>">
   <input type="text" name="answer" placeholder="enter answer">
+  <input type="hidden" name="card_id" value="<%= @card.id %>">
   <button type= "submit">Submit</button>
   </form>
 
