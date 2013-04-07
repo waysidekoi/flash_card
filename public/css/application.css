@@ -3,28 +3,165 @@
   width: 600px;
 }
 
-.right {
-  background: green;
+.login_container {
+  background-color: #E6E6DC;
+  height: 60px;
+
+}
+.left {
+  float: left;
+  text-align: left;
 }
 
-.wrong {
-  background: red;
+#logo {
+  position: relative;
+  display: block;
+  float: left;
+  top: 10px;
+  left: 10px;
+  height: 100px;
+  width: 300px;
 }
 
-#main-menu{
-  position: fixed;
-  top:0;
-  bottom:0;
+#logo a {
+  text-decoration: none;
+  color: #81A594;
+  font: 30px 'Boogaloo', cursive;
+}
+#login_form {
+  position: relative;
+  display: block;
+  float:right;
+  right: 20px;
+}
+#login_form .login{
+  padding-left: 5px;
+  margin: 5px 5px;
+  display: block;
+  width: 150px;
+
+
+
+  border-bottom-color: #b3b3b3;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: #b3b3b3;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-color: #b3b3b3;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-color: #b3b3b3;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top-style: solid;
+  border-top-width: 1px
+}
+
+#login_form button {
+  margin: 24px 0 0 10px;
+}
+#signin_form {
+  position: relative;
+  display: block;
+  padding: 0 75px;
+
+}
+#signin_form .signin{
+  padding: 5px 0;
+  margin: 15px 0px;
+  display: block;
+  width: 225px;
+
+  border-bottom-color: #b3b3b3;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: #b3b3b3;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-color: #b3b3b3;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-color: #b3b3b3;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top-style: solid;
+  border-top-width: 1px
+}
+
+.body {
+  border: 1px solid;
+  height: 500px;
+  margin: 0;
+  padding: 0;
+  background-color: #E6E6E6;
+}
+
+.signup_box {
+
+  position:absolute;
+  width: 400px;
+  height: 400px;
+  left: 30%;
+  top: 50%;
+  margin-left: -200px;
+  margin-top: -200px;
+  border: 1px solid #ccc;
+  background-color: #f3f3f3;
+
+}
+
+.signup_box ul {
+  color: #00628B;
+  font: 30px 'Boogaloo', cursive;
+}
+
+.info_box {
+  position:absolute;
+  right: 100px;
+  top: 60%;
+  margin-left: -200px;
+  margin-top: -200px;
+}
+
+.info_box ul {
+  color: #00628B;
+  font: 30px 'Boogaloo', cursive;
+}
+
+.footer {
+  padding: 10px 10px;
+  float: left;
+  clear: both;
+  font: 12px Garamond;
+}
+
+.logout {
+  display: block;
+  float: right;
+}
+/*#main-menu{
+  border: 1px solid;
   right:0;
   left:0;
-  background-color: red;
   height: 50px;
+
+}
+
+#main-menu h1{
+  border: 1px solid;
+
+  position: relative;
+  top: 0;
+  display: block;
+  font: 30px 'Boogaloo', cursive;
 }
 
 #main-menu ul{
   list-style: none;
-}
+  }*/
 
-.body {
-  padding-top: 50px;
-}

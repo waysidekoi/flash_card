@@ -1,11 +1,25 @@
-<nav id="main-menu">
-  <ul>
-    <li>Home</li>
-  </ul>
-  <% if login? %>
-    <form method="post" action="/session/logout">
-      <input type="hidden" name="_method" value="delete">
-      <button type="submit" >logout</button>
-    </form>
+<div class="login_container">
+
+
+  <div id="logo">
+    <a href="/">Knowledge Archives</a>
+  </div>
+
+  <% if !login? %>
+  <form action="/session/login" method="post">
+    <div id="login_form">
+      <label class="left">Login:<input class="login" type="text" name="user[name]"></label>
+      <label class="left">Password:<input class="login" type="text" name="user[password]"></label>
+      <button type="submit">Log in</button>
+    </div>
+  </form>
+
+  <% else %>
+  <form action="/session/logout" method="POST">
+    <input name="_method" value="DELETE" type="hidden" />
+    <div id="logout">
+      <button type="submit">Log out</button>
+    </div>
+  </form>
   <% end %>
-</nav>
+</div>  

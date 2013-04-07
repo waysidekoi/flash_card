@@ -1,28 +1,26 @@
-<div class="container">
-  <h1>Flash card</h1>
+<div class="body"> 
+  <h3><%= @errors if @errors %></h3>
 
-  <!-- IF USER IS LOGIN -->
-  <% if login? %>
-    Welcome <%= current_user.name %>!
-    <h3>Choose a deck</h3>
-    <ul id="game-list">
-      <% @decks.each do |deck| %>
-        <li><%= deck.name %> | <form action="/games/new/<%= deck.id %>" method='post'>
-                                  <button type='submit'>Game on baby</button>
-                                </form>
-        </li>
-      <% end %>
-    </ul>
-    
+  <div class="signup_box">
+    <ul>Sign Up!</ul>
 
-    <!-- IF USER NOT LOGIN -->
-    <% else %>
+    <form action="/users/create" method="post">
+      <div id="signin_form">
+        <label>User name:<input class="signin" type="text" name="user[name]"></label>
+        <label>Email:<input class="signin" type="text" name="user[email]"></label>
+        <label>Password:<input class="signin" type="password" name="user[password]"></label>
+        <button type='submit'>Sign up</button>
+      </div>
+    </form>
+  </div>
 
-    <h3>Login or create your account yo!</h3>
-      <form action="/session/login" method="post">
-        <input type="text" name="user[name]" placeholder="your user name">
-        <button type="submit">Login</button>
-      </form>
-    <% end %>
+  <div class="info_box">
+    <ul>Pick a knowledge set </ul> 
+    <ul>Track your progress</ul>
+    <ul>Have fun!</ul>
+  </div>
+</div>
 
+<div class="footer">
+  Andrew, Eric, Josh & Wayne<br>SF, CA
 </div>

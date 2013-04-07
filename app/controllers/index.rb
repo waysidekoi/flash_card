@@ -1,4 +1,8 @@
 get '/' do
-  @decks = Deck.all
-  erb :index
+  if login?
+    @decks = Deck.all
+    erb :logged_in
+  else
+    erb :index
+  end
 end

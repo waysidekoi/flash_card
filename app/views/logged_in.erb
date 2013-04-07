@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Flash card</h1>
+
+  <!-- IF USER IS LOGIN -->
+  <% if login? %>
+    Welcome <%= current_user.name %>!
+    <h3>Choose a deck</h3>
+    <ul id="game-list">
+      <% @decks.each do |deck| %>
+        <li><%= deck.name %> | <form action="/games/new/<%= deck.id %>" method='post'>
+                                  <button type='submit'>Game on baby</button>
+                                </form>
+        </li>
+      <% end %>
+    </ul>
+    
+
+    <!-- IF USER NOT LOGIN -->
+    <% else %>
+
+    <h3>Login or create your account yo!</h3>
+      <form action="/session/login" method="post">
+        <input type="text" name="user[name]" placeholder="your user name">
+        <button type="submit">Login</button>
+      </form>
+    <% end %>
+
+</div>
